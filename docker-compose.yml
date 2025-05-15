@@ -1,0 +1,74 @@
+# Participante: Daniel Gonçalves Lopes
+services:
+  # Exercício 1 – Cliente-Servidor TCP
+  tcp-server:
+    build: .
+    command: python cliente-servidor-tcp/server.py
+    network_mode: host
+    tty: true
+
+  tcp-client:
+    build: .
+    command: python cliente-servidor-tcp/client.py
+    network_mode: host
+    depends_on:
+      - tcp-server
+    stdin_open: true
+    tty: true
+
+  # Exercício 2 – Echo UDP
+  udp-server:
+    build: .
+    command: python cliente-servidor-udp/server.py
+    network_mode: host
+    tty: true
+
+  udp-client:
+    build: .
+    command: python cliente-servidor-udp/client.py
+    network_mode: host
+    depends_on:
+      - udp-server
+    stdin_open: true
+    tty: true
+
+  # Exercício 3 – Chat TCP
+  chat-server:
+    build: .
+    command: python chat-rede-tcp/server.py
+    network_mode: host
+    tty: true
+
+  chat-client1:
+    build: .
+    command: python chat-rede-tcp/client.py
+    network_mode: host
+    depends_on:
+      - chat-server
+    stdin_open: true
+    tty: true
+
+  chat-client2:
+    build: .
+    command: python chat-rede-tcp/client.py
+    network_mode: host
+    depends_on:
+      - chat-server
+    stdin_open: true
+    tty: true
+
+  # Exercício 4 – Servidor de Horas
+  time-server:
+    build: .
+    command: python servidor-horas/server.py
+    network_mode: host
+    tty: true
+
+  time-client:
+    build: .
+    command: python servidor-horas/client.py
+    network_mode: host
+    depends_on:
+      - time-server
+    stdin_open: true
+    tty: true
