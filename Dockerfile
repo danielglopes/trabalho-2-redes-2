@@ -1,4 +1,7 @@
-# Participante: Daniel Gonçalves Lopes
+# Participantes:
+# - Daniel Gonçalves Lopes
+# - Joana de Oliveira Rocha
+# - João Victor Almeida
 FROM python:3.13-alpine
 
 # Diretório de trabalho dentro do container

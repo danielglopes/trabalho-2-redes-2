@@ -2,8 +2,10 @@
 Exercício 3: Chat em Rede (TCP)
 Servidor que aceita 2 clientes e encaminha mensagens bidirecionais em tempo real.
 
-Participante:
+Participantes:
     - Daniel Gonçalves Lopes
+    - Joana de Oliveira Rocha
+    - João Victor Almeida
 """
 
 import socket

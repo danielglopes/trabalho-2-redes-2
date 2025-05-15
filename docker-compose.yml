@@ -1,4 +1,7 @@
-# Participante: Daniel Gonçalves Lopes
+# Participantes:
+#     - Daniel Gonçalves Lopes
+#     - Joana de Oliveira Rocha
+#     - João Victor Almeida
 services:
   # Exercício 1 – Cliente-Servidor TCP
   tcp-server:

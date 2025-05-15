@@ -2,8 +2,10 @@
 Exercício 3: Chat em Rede (TCP)
 Cliente que se conecta ao servidor e permite envio e recebimento simultâneos.
 
-Participante:
+Participantes:
     - Daniel Gonçalves Lopes
+    - Joana de Oliveira Rocha
+    - João Victor Almeida
 """
 
 import socket
