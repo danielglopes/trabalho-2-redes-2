@@ -1,77 +1,95 @@
 # Participantes:
-#     - Daniel Gonçalves Lopes
-#     - Joana de Oliveira Rocha
-#     - João Victor Almeida
+#   - Daniel Gonçalves Lopes
+#   - Joana de Oliveira Rocha
+#   - João Victor Almeida
 services:
   # Exercício 1 – Cliente-Servidor TCP
   tcp-server:
     build: .
-    command: python cliente-servidor-tcp/server.py
+    command: python3 -m tcp_server_client.server
     network_mode: host
     tty: true
+    volumes:
+      - ./logs:/app/logs
 
   tcp-client:
     build: .
-    command: python cliente-servidor-tcp/client.py
+    command: python3 -m tcp_server_client.client
     network_mode: host
     depends_on:
       - tcp-server
     stdin_open: true
     tty: true
+    volumes:
+      - ./logs:/app/logs
 
   # Exercício 2 – Echo UDP
   udp-server:
     build: .
-    command: python cliente-servidor-udp/server.py
+    command: python3 -m udp_server_client.server
     network_mode: host
     tty: true
+    volumes:
+      - ./logs:/app/logs
 
   udp-client:
     build: .
-    command: python cliente-servidor-udp/client.py
+    command: python3 -m udp_server_client.client
     network_mode: host
     depends_on:
       - udp-server
     stdin_open: true
     tty: true
+    volumes:
+      - ./logs:/app/logs
 
   # Exercício 3 – Chat TCP
   chat-server:
     build: .
-    command: python chat-rede-tcp/server.py
+    command: python3 -m chat_tcp_network.server
     network_mode: host
     tty: true
+    volumes:
+      - ./logs:/app/logs
 
   chat-client1:
     build: .
-    command: python chat-rede-tcp/client.py
+    command: python3 -m chat_tcp_network.client
     network_mode: host
     depends_on:
       - chat-server
     stdin_open: true
     tty: true
+    volumes:
+      - ./logs:/app/logs
 
   chat-client2:
     build: .
-    command: python chat-rede-tcp/client.py
+    command: python3 -m chat_tcp_network.client
     network_mode: host
     depends_on:
       - chat-server
     stdin_open: true
     tty: true
+    volumes:
+      - ./logs:/app/logs
 
   # Exercício 4 – Servidor de Horas
   time-server:
     build: .
-    command: python servidor-horas/server.py
+    command: python3 -m server_hours.server
     network_mode: host
     tty: true
+    volumes:
+      - ./logs:/app/logs
 
   time-client:
     build: .
-    command: python servidor-horas/client.py
+    command: python3 -m server_hours.client
     network_mode: host
     depends_on:
       - time-server
     stdin_open: true
     tty: true
+    volumes:
+      - ./logs:/app/logs

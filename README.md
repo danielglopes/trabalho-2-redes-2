@@ -2,77 +2,98 @@
 
 Este repositório contém as soluções dos exercícios propostos na disciplina de Redes de Computadores 2 (Prof. Alessandro Vivas Andrade). Cada subdiretório implementa um exercício específico usando Python 3.10+ e demonstra conceitos de sockets, protocolos TCP/UDP e multithreading.
 
-## 📂 Estrutura do Projeto.
+## 📂 Estrutura do Projeto
+
+```
+.
+├── chat_tcp_network/        # Exercício 3: Chat TCP
+│   ├── client.py
+│   └── server.py
+│
+├── tcp_server_client/       # Exercício 1: Cliente-Servidor TCP
+│   ├── client.py
+│   └── server.py
+│
+├── udp_server_client/       # Exercício 2: Echo UDP
+│   ├── client.py
+│   └── server.py
+│
+├── server_hours/            # Exercício 4: Servidor de Horas
+│   ├── client.py
+│   └── server.py
+│
+├── log_config.py            # Configuração global de logging
+├── Dockerfile
+├── docker-compose.yml
+├── LICENSE
+├── README.md
+└── logs/                    # Arquivos de log gerados
+```
 
 ## 🛠️ Requisitos
 
-* Python 3.10 ou superior
-* (Opcional) Docker e Docker Compose, se desejar executar em contêineres
+- Python 3.10 ou superior
+- (Opcional) Docker e Docker Compose, para execução em contêineres
 
 ## 🚀 Como Executar (Modo Local)
 
-Para cada exercício, abra um terminal, entre no respectivo diretório e execute:
+Execute cada exercício diretamente do **diretório raiz** usando o parâmetro `-m`:
 
 ### Exercício 1 – Cliente-Servidor TCP
 
 ```bash
-cd cliente-servidor-tcp
-# No terminal A (servidor)
-python3 server.py
-# No terminal B (cliente)
-python3 client.py
+# Terminal A (servidor)
+python3 -m tcp_server_client.server
+
+# Terminal B (cliente)
+python3 -m tcp_server_client.client
 ```
 
 ### Exercício 2 – Echo UDP
 
 ```bash
-cd cliente-servidor-udp
-# No terminal A (servidor)
-python3 server.py
-# No terminal B (cliente)
-python3 client.py
+# Terminal A (servidor)
+python3 -m udp_server_client.server
+
+# Terminal B (cliente)
+python3 -m udp_server_client.client
 ```
 
-### Exercício 3 – Chat Rede TCP
+### Exercício 3 – Chat TCP
 
 ```bash
-cd chat-rede-tcp
-# No terminal A (servidor)
-python3 server.py
-# No terminal B e C (clientes)
-python3 client.py
+# Terminal A (servidor)
+python3 -m chat_tcp_network.server
+
+# Terminal B e C (clientes)
+python3 -m chat_tcp_network.client
 ```
 
 ### Exercício 4 – Servidor de Horas
 
 ```bash
-cd servidor-horas
-# No terminal A (servidor)
-python3 server.py
-# No terminal B (cliente)
-python3 client.py
+# Terminal A (servidor)
+python3 -m server_hours.server
+
+# Terminal B (cliente)
+python3 -m server_hours.client
 ```
 
 ## 🐳 Docker
 
-Caso queira usar Docker e Docker Compose, siga estas etapas na raiz do projeto:
+Para execução com Docker e Docker Compose, na raiz do projeto:
 
 1. **Build da imagem**
-
    ```bash
    docker-compose build
    ```
-2. **Executar apenas o servidor e o cliente interativo**
-
+2. **Executar servidor e cliente interativos**
    ```bash
-   # Subir servidor em backgound
-   docker-compose up -d ex1-tcp-server
-
-   # Executar cliente interativo (conecta stdin/stdout)
-   docker-compose run --rm ex1-tcp-client
+   # Exemplo para Exercício 1
+   docker-compose up -d tcp-server
+   docker-compose run --rm tcp-client
    ```
 3. **Parar e remover containers**
-
    ```bash
    docker-compose down
    ```
@@ -81,10 +102,10 @@ Caso queira usar Docker e Docker Compose, siga estas etapas na raiz do projeto:
 
 ## 📄 Descrição dos Exercícios
 
-1. **cliente-servidor-tcp**: troca de mensagens simples via TCP com confirmação e validação de entrada.
-2. **cliente-servidor-udp**: serviço de eco via UDP, tratamento de timeouts e tamanho máximo de datagrama.
-3. **chat-rede-tcp**: chat bidirecional entre dois clientes, usando threads para envio e recepção paralelos.
-4. **servidor-horas**: servidor multithread que retorna a hora atual (`HH:MM:SS`) e registra logs de requisição.
+1. **tcp_server_client**: troca de mensagens simples via TCP com confirmação e validação de entrada.
+2. **udp_server_client**: serviço de eco via UDP, tratamento de timeouts e tamanho máximo de datagrama.
+3. **chat_tcp_network**: chat bidirecional entre dois clientes, usando threads para envio e recepção paralelos.
+4. **server_hours**: servidor multithread que retorna a hora atual (`HH:MM:SS`) e registra logs de requisição.
 
 ## 👥 Participantes
 
