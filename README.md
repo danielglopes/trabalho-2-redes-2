@@ -85,17 +85,17 @@ Para execução com Docker e Docker Compose, na raiz do projeto:
 
 1. **Build da imagem**
    ```bash
-   docker-compose build
+   docker compose build
    ```
 2. **Executar servidor e cliente interativos**
    ```bash
    # Exemplo para Exercício 1
-   docker-compose up -d tcp-server
-   docker-compose run --rm tcp-client
+   docker compose up -d tcp-server
+   docker compose run --rm tcp-client
    ```
 3. **Parar e remover containers**
    ```bash
-   docker-compose down
+   docker compose down
    ```
 
 > No modo `host` (Linux), os containers compartilham a rede do host, permitindo que `127.0.0.1:<porta>` funcione corretamente.
